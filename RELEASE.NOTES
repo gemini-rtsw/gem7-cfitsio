@@ -3,3 +3,6 @@ V2.0 : Version for PPC 4 Nov 1999 CB
 V3.0 : replace READONLY with FITSIO_READONLY
        replace READWRITE with FITSIO_READWRITE
        13 Jan 2000 CB
+
+V4.0 : Compilation with tornado2.0
+       17 oct 2001 CB

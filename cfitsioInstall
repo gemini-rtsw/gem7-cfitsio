@@ -3,7 +3,7 @@
 # Install script for Gemini CFITSIO system
 #
 
-applSetup -T svgm5 -include src -include startup -subdir_file Makefile.subdirs $1 > cfitsioBuild.log 2>&1
+applSetup.pl -T ppc604 -T mv167 -I src -I startup $1 > cfitsioBuild.log 2>&1
 
 gmake >> cfitsioBuild.log 2>&1
 

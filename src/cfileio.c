@@ -181,7 +181,10 @@ int ffopen(fitsfile **fptr,      /* O - FITS file pointer                   */
   Open an existing FITS file with either readonly or read/write access.
 */
 {
+/*
     int ii, hdutype, slen, tstatus;
+*/
+    int ii, hdutype, slen;
     size_t filesize, finalsize;
     FILE *diskfile;
 
@@ -518,7 +521,10 @@ int ffinit(fitsfile **fptr,      /* O - FITS file pointer                   */
   Create and initialize a new FITS file.
 */
 {
+/*
     int ii, slen, tstatus;
+*/
+    int ii, slen;
     size_t filesize;
     FILE *diskfile;
 
@@ -748,7 +754,9 @@ int fffile2mem(char *filename,   /* I - file to copy into memory      */
 */
 {
     FILE *diskfile;
+/*
     size_t nread;
+*/
     void *ptr;
 
     if (*status > 0)
@@ -759,7 +767,7 @@ int fffile2mem(char *filename,   /* I - file to copy into memory      */
     if (ffopenfile(filename, 0, 0, &diskfile, filesize, status) > 0)
         return(*status);
 
-     if (*filesize > *buffsize)
+    if (*filesize > *buffsize)
     {
         /* have to allocate more memory to hold the file */
         if (!mem_realloc)
@@ -777,6 +785,12 @@ int fffile2mem(char *filename,   /* I - file to copy into memory      */
         *buffptr = ptr;
         *buffsize = *filesize;
     }
+    /* Add by CB 17 oct 2001 */
+    else
+    {
+       ptr = *buffptr;
+    }
+    /* End of add */
 
     /* now read the file into memory */
     if(fread(ptr, 1, *filesize, diskfile) != *filesize)
@@ -801,7 +815,9 @@ int ffopenfile(char *filename, /* I - FITS file pointer                    */
 */
 {
     char mode[4];
+/*
     void *ptr;
+*/
 
 /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
 /* temporarily add test for correct byteswapping.  Remove this after
@@ -883,7 +899,9 @@ int ffisfilecompressed(char *filename, /* I - FITS file name          */
   and size of the compressed file.
 */
 {
+/*
     void *ptr;
+*/
     unsigned char buffer[4];
     char tmpfilename[160];
 

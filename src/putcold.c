@@ -343,7 +343,10 @@ int ffpcld( fitsfile *fptr,  /* I - FITS file pointer                       */
     long twidth, incre, repeat, rowlen, rownum, elemnum, remain, next, ntodo;
     long tnull, startpos, wrtptr;
     double scale, zero;
+/*
     char tform[20], cform[20], cstring[50];
+*/
+    char tform[20], cform[20];
     char message[FLEN_ERRMSG];
 
     char snull[20];   /*  the FITS null value  */

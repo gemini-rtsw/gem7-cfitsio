@@ -397,7 +397,10 @@ void ffcmsg(void)
   erase all messages in the error stack
 */
 {
+/*
     char *dummy;
+*/
+    char *dummy=(char *)NULL;
 
     ffxmsg(0, dummy);
     return;
@@ -424,7 +427,10 @@ void ffxmsg( int action,
 #define errmsgsiz 25
     static char *txtbuff[errmsgsiz], *tmpbuff;
     static char errbuff[errmsgsiz][81];  /* initialize all = \0 */
+/*
     static nummsg = 0;
+*/
+    static int nummsg = 0;
 
     if (action == -2)  /* remove newest message from stack */ 
     {
@@ -559,7 +565,10 @@ int fftrec(char *card,       /* I -  keyword card to test */
 
     for (ii = 8; ii < maxchr; ii++)
     {
+/*
         if (!isprint(card[ii]))
+*/
+        if (!isprint((int)(card[ii])))
         {
             sprintf(msg, "Character %d in this keyword record is illegal:",
               (int) (ii+1) );
@@ -752,7 +761,9 @@ int ffpsvc(char *card,    /* I - FITS header card (nominally 80 bytes long) */
 {
     int jj;
     size_t ii, cardlen, nblank;
+/*
     char errmsg[FLEN_ERRMSG];
+*/
 
     if (*status > 0)
         return(*status);
@@ -1284,7 +1295,10 @@ int ffbnfm(char *tform,     /* I - format code from the TFORMn keyword */
     /*-----------------------------------------------*/
 
     ii = 0;
+/*
     while(isdigit(form[ii]))
+*/
+    while(isdigit((int)(form[ii])))
         ii++;   /* look for leading digits in the field */
 
     if (ii == 0)
@@ -1477,7 +1491,10 @@ int ffgcnn( fitsfile *fptr,  /* I - FITS file pointer                       */
 {
     char errmsg[FLEN_ERRMSG];
     static int startcol;
+/*
     int tstatus, ii, founde, foundw, match, exact, unique;
+*/
+    int tstatus, ii, founde, foundw, match, exact, unique=0;
     long ivalue;
     tcolumn *colptr;
 
@@ -1675,13 +1692,19 @@ void ffcmps(char *templt,   /* I - input template (may have wildcards)      */
         s1++;  /* corresponding chars in the 2 strings match */
         t1++;  /* increment both pointers and loop back again */
       }
+/*
       else if (temp[t1] == '#' && isdigit(col[s1]) )
+*/
+      else if (temp[t1] == '#' && isdigit((int)(col[s1])) )
       {
         s1++;  /* corresponding chars in the 2 strings match */
         t1++;  /* increment both pointers */
 
         /* find the end of the string of digits */
+/*
         while (isdigit(col[s1]) ) 
+*/
+        while (isdigit((int)(col[s1])) ) 
             s1++;        
       }
       else if (temp[t1] == '*')
@@ -2090,7 +2113,10 @@ int ffpinit(fitsfile *fptr,      /* I - FITS file pointer */
 */
 {
     int groups, tstatus, simple, bitpix, naxis, extend, nspace;
+/*
     int ttype, bytlen, ii;
+*/
+    int ttype=TBYTE, bytlen=1, ii;
     long naxes[999], pcount, gcount, npix, blank;
     double bscale, bzero;
     char comm[FLEN_COMMENT];
@@ -2424,7 +2450,10 @@ int ffbinit(fitsfile *fptr,     /* I - FITS file pointer */
   initialize the parameters defining the structure of a binary table 
 */
     int  ii, nspace;
+/*
     long nrows, rowlen, tfield, pcount, totalwidth, strrepeat;
+*/
+    long nrows, rowlen, tfield, pcount, totalwidth;
     tcolumn *colptr;
     char name[FLEN_KEYWORD], value[FLEN_VALUE], comm[FLEN_COMMENT];
     char message[FLEN_ERRMSG];
@@ -3764,7 +3793,10 @@ int ffmnhd(fitsfile *fptr,      /* I - FITS file pointer                    */
 {
     char extname[FLEN_VALUE];
     int ii, hdutype, extnum, tstatus, match, exact;
+/*
     long extvers, slen;
+*/
+    long extvers;
 
     if (*status > 0)
         return(*status);
@@ -3812,7 +3844,10 @@ int ffthdu(fitsfile *fptr,      /* I - FITS file pointer                    */
 */
 {
     int ii, extnum, tstatus;
+/*
     char *errmsg;
+*/
+    char *errmsg=(char *)NULL;
 
     if (*status > 0)
         return(*status);
@@ -3876,7 +3911,10 @@ int ffiblk(fitsfile *fptr,      /* I - FITS file pointer               */
 */
 {
     int tstatus, savehdu, typhdu;
+/*
     long ii, jj, insertpt, nshift, jpoint;
+*/
+    long ii, insertpt, nshift, jpoint;
     char charfill;
     char buff1[2880], buff2[2880];
     char *inbuff, *outbuff, *tmpbuff;
@@ -4167,7 +4205,9 @@ int ffc2r(char *cval,   /* I - string representation of the value */
 {
     char dtype, msg[81];
     int lval;
+/*
     double dval;
+*/
     
     if (*status > 0)           /* inherit input status value if > 0 */
         return(*status);

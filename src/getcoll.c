@@ -103,7 +103,10 @@ int ffgcll( fitsfile *fptr,   /* I - FITS file pointer                       */
 */
 {
     int tcode, maxelem, hdutype, ii, nulcheck;
+/*
     long twidth, offset, incre, repeat, rowlen, rownum, elemnum;
+*/
+    long twidth, incre, repeat, rowlen, rownum, elemnum;
     long tnull, startpos, readptr, remain, next, ntodo;
     double scale, zero;
     char tform[20];

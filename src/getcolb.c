@@ -366,7 +366,10 @@ int ffgsfb(fitsfile *fptr, /* I - FITS file pointer                         */
     long str[9],stp[9],incr[9],dsize[10];
     long felem, nelem, nultyp, ninc, numcol;
     int anyf;
+/*
     unsigned char nulval;
+*/
+    unsigned char nulval=(unsigned char)NULL;
     char msg[FLEN_ERRMSG];
 
     if (naxis < 1 || naxis > 9)
@@ -563,7 +566,10 @@ int ffgcfb(fitsfile *fptr,   /* I - FITS file pointer                       */
   otherwise nularray will = 0.
 */
 {
+/*
     unsigned char dummy;
+*/
+    unsigned char dummy=(unsigned char)NULL;
 
     ffgclb(fptr, colnum, firstrow, firstelem, nelem, 1, 2, dummy,
            array, nularray, anynul, status);
@@ -598,11 +604,17 @@ int ffgclb( fitsfile *fptr,   /* I - FITS file pointer                       */
   and will be scaled by the FITS TSCALn and TZEROn values if necessary.
 */
 {
+/*
     double scale, zero, dblvalue, power = 1.;
+*/
+    double scale, zero, power = 1.;
     int tcode, maxelem, hdutype, xcode, decimals;
     long twidth, incre, repeat, rowlen, rownum, elemnum, remain, next, ntodo;
     long ii, rowincre, tnull, xwidth;
+/*
     int convert, nulcheck;
+*/
+    int convert=0, nulcheck;
     long startpos, readptr;
     char tform[20];
     char message[81];
@@ -1642,7 +1654,10 @@ int fffstri1(char *input,         /* I - array of values to be converted     */
   pixels are null, otherwise anynull will be returned with a value = 0;
 */
 {
+/*
     int jj, nullen;
+*/
+    int nullen;
     long ii;
     double dvalue;
     char cstring[50], message[81];

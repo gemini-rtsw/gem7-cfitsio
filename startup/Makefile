@@ -1,7 +1,7 @@
 include .applTop
 -include $(APPLIC_TOP)/config/CONFIG
 
-APPLIC_DIR_TYPE = src
+APPLIC_DIR_TYPE = startup
 
 -include $(APPLIC_TOP)/config/RULES.Dirs
 

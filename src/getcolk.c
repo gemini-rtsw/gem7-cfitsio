@@ -365,7 +365,10 @@ int ffgsfk(fitsfile *fptr, /* I - FITS file pointer                         */
     long ii,i0, i1,i2,i3,i4,i5,i6,i7,i8,row,rstr,rstp,rinc;
     long str[9],stp[9],incr[9],dsize[10];
     long felem, nelem, nultyp, ninc, numcol;
+/*
     long nulval;
+*/
+    long nulval=0;
     int anyf;
     char msg[FLEN_ERRMSG];
 
@@ -563,7 +566,10 @@ int ffgcfk(fitsfile *fptr,   /* I - FITS file pointer                       */
   otherwise nularray will = 0.
 */
 {
+/*
     int dummy;
+*/
+    int dummy=0;
 
     ffgclk(fptr, colnum, firstrow, firstelem, nelem, 1, 2, dummy,
            array, nularray, anynul, status);
@@ -598,7 +604,10 @@ int ffgclk( fitsfile *fptr,   /* I - FITS file pointer                       */
   and will be scaled by the FITS TSCALn and TZEROn values if necessary.
 */
 {
+/*
     double scale, zero, dblvalue, power;
+*/
+    double scale, zero, power;
     int tcode, maxelem, hdutype, xcode, decimals;
     long twidth, incre, repeat, rowlen, rownum, elemnum, remain, next, ntodo;
     long ii, rowincre, tnull, xwidth;
@@ -1591,7 +1600,10 @@ int fffstrint(char *input,        /* I - array of values to be converted     */
   pixels are null, otherwise anynull will be returned with a value = 0;
 */
 {
+/*
     int jj, nullen;
+*/
+    int nullen;
     long ii;
     double dvalue;
     char cstring[50], message[81];

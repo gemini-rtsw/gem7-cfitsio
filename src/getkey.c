@@ -322,7 +322,9 @@ int ffgrec( fitsfile *fptr,     /* I - FITS file pointer          */
   current header pointer to the top of the header.
 */
 {
+/*
     char sbuff[FLEN_CARD];
+*/
 
     if (*status > 0)
         return(*status);
@@ -1215,7 +1217,10 @@ int ffgtdm(fitsfile *fptr,  /* I - FITS file pointer                        */
     int tstatus;
     long dimsize;
     char keyname[FLEN_KEYWORD], tdimstr[FLEN_VALUE], comm[FLEN_COMMENT];
+/*
     char *loc, *lastloc;
+*/
+    char *loc, *lastloc=(char *)NULL;
     tcolumn *colptr;
 
     if (*status > 0)
@@ -1508,8 +1513,10 @@ int ffgphd(fitsfile *fptr,  /* I - FITS file pointer                        */
         if (!strcmp(name, "SIMPLE"))
         {
             if (value[0] == 'F')
+            {
                 if (simple)
                     *simple=0;          /* not a simple FITS file */
+            }
             else if (value[0] != 'T')
                 return(*status = BAD_SIMPLE);
         }

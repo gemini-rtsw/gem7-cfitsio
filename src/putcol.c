@@ -547,7 +547,10 @@ int ffiter(int n_cols,
     int ii, jj, tstatus;
     int typecode, hdutype, jtype, type, anynul, nfiles, nbytes;
     long totaln, nleft, frow, felement, n_optimum, i_optimum, ntodo;
+/*
     long rept, width, tnull, tfields;
+*/
+    long rept, width, tnull;
     double zeros = 0.;
     char message[FLEN_ERRMSG], keyname[FLEN_KEYWORD], nullstr[FLEN_VALUE];
     char **stringptr;

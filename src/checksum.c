@@ -193,7 +193,10 @@ int ffpcks(fitsfile *fptr,      /* I - FITS file pointer                  */
    coded 1's complement checksum algorithm developed by Rob Seaman at NOAO.
 */
 {
+/*
     char datestr[9], checksum[FLEN_VALUE], datasum[FLEN_VALUE];
+*/
+    char datestr[11], checksum[FLEN_VALUE], datasum[FLEN_VALUE];
     char  comm[FLEN_COMMENT], chkcomm[FLEN_COMMENT], datacomm[FLEN_COMMENT];
     time_t tp;
     struct tm *ptr;
@@ -208,7 +211,10 @@ int ffpcks(fitsfile *fptr,      /* I - FITS file pointer                  */
     /* generate current date string and construct the keyword comments */
     time(&tp);
     ptr = localtime(&tp);
+/*
     strftime(datestr, 9, "%d/%m/%y", ptr);
+*/
+    strftime(datestr, 11, "%d/%m/%Y", ptr);
     strcpy(chkcomm, "encoded HDU checksum updated on ");
     strcat(chkcomm, datestr);
     strcpy(datacomm, "data unit checksum updated on ");
@@ -329,7 +335,10 @@ int ffupck(fitsfile *fptr,      /* I - FITS file pointer                  */
    keyword exists and has the correct value.
 */
 {
+/*
     char datestr[9], chkcomm[FLEN_COMMENT], comm[FLEN_COMMENT];
+*/
+    char datestr[11], chkcomm[FLEN_COMMENT], comm[FLEN_COMMENT];
     char checksum[FLEN_VALUE], datasum[FLEN_VALUE];
     time_t tp;
     struct tm *ptr;
@@ -344,7 +353,10 @@ int ffupck(fitsfile *fptr,      /* I - FITS file pointer                  */
     /* generate current date string and construct the keyword comments */
     time(&tp);
     ptr = localtime(&tp);
+/*
     strftime(datestr, 9, "%d/%m/%y", ptr);
+*/
+    strftime(datestr, 11, "%d/%m/%Y", ptr);
     strcpy(chkcomm, "encoded HDU checksum updated on ");
     strcat(chkcomm, datestr);
 

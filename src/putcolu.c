@@ -80,7 +80,10 @@ int ffpclu( fitsfile *fptr,  /* I - FITS file pointer                       */
   images.
 */
 {
+/*
     int tcode, maxelem, hdutype, lennull, nwrite;
+*/
+    int tcode, maxelem, hdutype, lennull, nwrite=0;
     short i2null;
     long twidth, incre, repeat, rowlen, rownum, elemnum, remain, next, ntodo;
     long tnull, startpos, wrtptr, ii;

@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <sysLib.h>
 
 /*
   Every program which uses the CFITSIO interface must include the
@@ -52,7 +53,10 @@ void printerror( int status);
 int marktime(int *status);
 int gettime(double *elapse, float *elapscpu, int *status);
 
+/*
 main()
+*/
+int testspeed()
 {
 /*************************************************************************
     This program tests the speed of writing/reading FITS files with cfitsio
@@ -190,7 +194,10 @@ int writebintable (fitsfile *fptr, int *status)
     /* Create a binary table extension containing 3 columns  */
     /*********************************************************/
 {
+/*
     int hdutype, tfields = 2;
+*/
+    int tfields = 2;
     long nremain, ntodo, firstrow = 1, firstelem = 1, nrows;
     float rate, size, elapcpu, cpufrac;
     double elapse;
@@ -214,7 +221,7 @@ int writebintable (fitsfile *fptr, int *status)
     nremain = BROWS;
 
     printf("Write %7drow x %dcol bintable %4d rows/loop:", BROWS, tfields,
-       nrows);
+       (int)nrows);
     marktime(status);
 
     while(nremain)
@@ -244,7 +251,10 @@ int writeasctable (fitsfile *fptr, int *status)
     /* Create an ASCII table extension containing 2 columns  */
     /*********************************************************/
 {
+/*
     int hdutype, tfields = 2;
+*/
+    int tfields = 2;
     long nremain, ntodo, firstrow = 1, firstelem = 1;
     long nrows;
     float rate, size, elapcpu, cpufrac;
@@ -268,7 +278,7 @@ int writeasctable (fitsfile *fptr, int *status)
     nremain = AROWS;
 
     printf("Write %7drow x %dcol asctable %4d rows/loop:", AROWS, tfields,
-           nrows);
+           (int)nrows);
     marktime(status);
 
     while(nremain)

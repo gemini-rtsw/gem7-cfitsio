@@ -639,10 +639,19 @@ int ffcpcl(fitsfile *infptr,    /* I - FITS file pointer to input file  */
     long inloop, outloop, maxloop, ndone, ntodo, npixels;
     long firstrow, firstelem, ii;
     char keyname[FLEN_KEYWORD], ttype[FLEN_VALUE], tform[FLEN_VALUE];
+/*
     char *lvalues, nullflag, **strarray;
+*/
+    char *lvalues=(char *)NULL, nullflag, **strarray=(char **)NULL;
     char nulstr[] = {'\5', '\0'};  /* unique null string value */
+/*
     double dnull, *dvalues;
+*/
+    double dnull=0.0, *dvalues=(double *)NULL;
+/*
     float fnull, *fvalues;
+*/
+    float fnull=0.0, *fvalues=(float *)NULL;
 
     if (*status > 0)
         return(*status);

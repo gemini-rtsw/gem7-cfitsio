@@ -201,7 +201,9 @@ int ffpcns( fitsfile *fptr,  /* I - FITS file pointer                       */
   null value in the output FITS file. 
 */
 {
+/*
     tcolumn *colptr;
+*/
     int typecode;
     long repeat, width, first, ngood = 0, nbad = 0, ii, fstelm, fstrow;
 

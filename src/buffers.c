@@ -282,7 +282,10 @@ int ffpbytoff(fitsfile *fptr, /* I - FITS file pointer                   */
 */
 {
     int bcurrent;
+/*
     long ii, ntodo, bufpos, nspace, nwrite, record;
+*/
+    long ii, bufpos, nspace, nwrite, record;
     char *cptr, *ioptr;
     extern char iobuffer[NIOBUF][IOBUFLEN];
     extern long bufrecnum[NIOBUF]; 
@@ -456,7 +459,10 @@ int ffgbytoff(fitsfile *fptr, /* I - FITS file pointer                   */
 */
 {
     int bcurrent;
+/*
     long ii, ntodo, bufpos, nspace, nread, record;
+*/
+    long ii, bufpos, nspace, nread, record;
     char *cptr, *ioptr;
     extern char iobuffer[NIOBUF][IOBUFLEN];
     extern long bufrecnum[NIOBUF]; 
@@ -541,7 +547,10 @@ int ffldrc(fitsfile *fptr,        /* I - FITS file pointer             */
   pointers to make this the new current record for that file.
   Update ages of all the physical buffers.
 */
+/*
     int ibuff, nbuff, ii;
+*/
+    int ibuff, nbuff;
     long rstart;
 
     extern char iobuffer[NIOBUF][IOBUFLEN];
@@ -658,7 +667,9 @@ int ffflsh(fitsfile *fptr,        /* I - FITS file pointer           */
     int ii;
 
     extern fitsfile *bufptr[NIOBUF];
-    extern long bufrecnum[NIOBUF]; 
+/*
+    extern long bufrecnum[NIOBUF];
+*/
     extern int dirty[NIOBUF];
 
     for (ii = 0; ii < NIOBUF; ii++)
@@ -999,8 +1010,11 @@ int ffgr4b(fitsfile *fptr,  /* I - FITS file pointer                        */
   format conversion (e.g. byte-swapping) if necessary.
 */
 {
+/*  
     short *sptr;
-    long ii, postemp;
+    long ii, postemp; 
+*/
+    long postemp;
 
     if (incre == 4)      /* read all the values at once (contiguous bytes) */
     {
@@ -1061,8 +1075,11 @@ int ffgr8b(fitsfile *fptr,  /* I - FITS file pointer                        */
   format conversion (e.g. byte-swapping) if necessary.
 */
 {
+/*
     short *sptr;
     long ii, postemp;
+*/
+    long postemp;
 
     if (incre == 8)      /* read all the values at once (contiguous bytes) */
     {
@@ -1235,7 +1252,9 @@ int ffpr4b(fitsfile *fptr, /* I - FITS file pointer                         */
   format conversion (e.g. byte-swapping) if necessary.
 */
 {
+/*
     long ii;
+*/
 
 #if MACHINE == VAXVMS
 
@@ -1277,7 +1296,9 @@ int ffpr8b(fitsfile *fptr, /* I - FITS file pointer                         */
   format conversion (e.g. byte-swapping) if necessary.
 */
 {
+/*
     long ii;
+*/
 
 #if MACHINE == VAXVMS
 

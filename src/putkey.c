@@ -797,7 +797,10 @@ int ffpdat( fitsfile *fptr,      /* I - FITS file pointer  */
   exists then the date will simply be updated in the existing keyword.
 */
 {
+/*
     char date[9], card[FLEN_CARD];
+*/
+    char date[11], card[FLEN_CARD];
     time_t tp;
     struct tm *ptr;
 
@@ -806,7 +809,10 @@ int ffpdat( fitsfile *fptr,      /* I - FITS file pointer  */
 
     time(&tp);
     ptr = localtime(&tp);
+/*
     strftime(date, 9, "%d/%m/%y", ptr);
+*/
+    strftime(date, 11, "%d/%m/%Y", ptr);
 
     strcpy(card, "DATE    = '");
     strcat(card, date);

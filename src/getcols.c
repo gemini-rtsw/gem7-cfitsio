@@ -84,7 +84,10 @@ int ffgcls( fitsfile *fptr,   /* I - FITS file pointer                       */
 {
     size_t nullen; 
     int tcode, maxelem, hdutype, nulcheck;
+/*
     long twidth, offset, incre, repeat, rowlen, rownum, elemnum;
+*/
+    long twidth, incre, repeat, rowlen, rownum, elemnum;
     long ii, jj, ntodo, tnull, startpos, readptr, remain, next;
     double scale, zero;
     char tform[20];
