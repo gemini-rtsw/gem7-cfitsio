@@ -6,3 +6,6 @@ V3.0 : replace READONLY with FITSIO_READONLY
 
 V4.0 : Compilation with tornado2.0
        17 oct 2001 CB
+
+V4-1 : add Makefile.Dirs
+       17 oct 2001 CB
