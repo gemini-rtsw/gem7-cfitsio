@@ -1,3 +1,3 @@
 #!/bin/csh -f
 
-applSetup -T mv167 -include src -include startup -subdir_file Makefile.subdirs
+applSetup -T svgm5 -include src -include startup -subdir_file Makefile.subdirs
