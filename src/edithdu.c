@@ -201,7 +201,7 @@ int ffiimg(fitsfile *fptr,      /* I - FITS file pointer           */
     datasize = npixels * bytlen;          /* size of image in bytes */
     nblocks = ((datasize + 2879) / 2880) + 1;  /* +1 for the header */
 
-    if (fptr->writemode == READWRITE) /* must have write access */
+    if (fptr->writemode == FITSIO_READWRITE) /* must have write access */
     {   /* close the CHDU */
         ffrdef(fptr, status);  /* scan header to redefine structure */
         ffpdfl(fptr, status);  /* insure correct data file values */
@@ -308,7 +308,7 @@ int ffitab(fitsfile *fptr,  /* I - FITS file pointer                        */
     datasize = rowlen * naxis2;          /* size of table in bytes */
     nblocks = ((datasize + 2879) / 2880) + nhead;  /* size of HDU */
 
-    if (fptr->writemode == READWRITE) /* must have write access */
+    if (fptr->writemode == FITSIO_READWRITE) /* must have write access */
     {   /* close the CHDU */
         ffrdef(fptr, status);  /* scan header to redefine structure */
         ffpdfl(fptr, status);  /* insure correct data file values */
@@ -416,7 +416,7 @@ int ffibin(fitsfile *fptr,  /* I - FITS file pointer                        */
     datasize = (naxis1 * naxis2) + pcount;         /* size of table in bytes */
     nblocks = ((datasize + 2879) / 2880) + nhead;  /* size of HDU */
 
-    if (fptr->writemode == READWRITE) /* must have write access */
+    if (fptr->writemode == FITSIO_READWRITE) /* must have write access */
     {   /* close the CHDU */
         ffrdef(fptr, status);  /* scan header to redefine structure */
         ffpdfl(fptr, status);  /* insure correct data file values */

@@ -47,8 +47,8 @@
 #define BINARY_TBL 2  /* Binary table HDU */
 #define ANY_HDU   -1  /* matches any HDU type */
 
-#define READONLY  0    /* options when openning a file */
-#define READWRITE 1
+#define FITSIO_READONLY  0    /* options when openning a file */
+#define FITSIO_READWRITE 1
 
 #define FLOATNULLVALUE -9.11E-36F
 #define DOUBLENULLVALUE -9.11E-36L

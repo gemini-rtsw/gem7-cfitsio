@@ -94,7 +94,7 @@ int ffwbuf(void *buffptr,          /* I - memory pointer                    */
     fits_set_mem_buff(&fptr, &tmpptr, &tmpsize, deltasize, 0, status);
 
     /* open the memory FITS file using a blank name */
-    if (ffopen(&fptr, " ", READONLY, status) > 0)
+    if (ffopen(&fptr, " ", FITSIO_READONLY, status) > 0)
     {
         ffpmsg("ffwbuf failed to open memory FITS file:");
         return(*status);
@@ -440,7 +440,7 @@ int fftplt(fitsfile **fptr,      /* O - FITS file pointer                   */
     if (template == NULL || *template == '\0')     /* no template file? */
         return(*status);
 
-    ffopen(&tptr, tempname, READONLY, &tstatus);  /* try opening template */
+    ffopen(&tptr, tempname, FITSIO_READONLY, &tstatus);  /* try opening template */
 
     if (tstatus)  /* not a FITS file, so treat it as an ASCII template */
     {
