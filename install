@@ -1,3 +1,0 @@
-#!/bin/csh -f
-
-applSetup -T mv167 -include src -subdir_file Makefile.subdirs
